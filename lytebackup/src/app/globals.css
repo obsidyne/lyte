@@ -1,0 +1,78 @@
+/* Base Styles */
+body {
+  background-color: #171616; 
+  color: white;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+}
+
+/* Radial Gradients at Top and Bottom */
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50vh;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+}
+
+/* Top Gradient */
+body::before {
+  top: 0;
+  clip-path: ellipse(50% 40% at 50% 0%);
+}
+
+/* Bottom Gradient */
+body::after {
+  bottom: 0;
+  clip-path: ellipse(50% 40% at 50% 100%);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  body::before, 
+  body::after {
+    height: 45vh; /* Slightly smaller for medium screens */
+  }
+}
+
+@media (max-width: 992px) {
+  body::before,
+  body::after {
+    height: 40vh;
+  }
+  body::before {
+    clip-path: ellipse(55% 35% at 50% 0%);
+  }
+  body::after {
+    clip-path: ellipse(55% 35% at 50% 100%);
+  }
+}
+
+@media (max-width: 768px) {
+  body::before,
+  body::after {
+    height: 35vh;
+  }
+  body::before {
+    clip-path: ellipse(60% 30% at 50% 0%);
+  }
+  body::after {
+    clip-path: ellipse(60% 30% at 50% 100%);
+  }
+}
+
+@media (max-width: 576px) {
+  body::before,
+  body::after {
+    height: 30vh;
+  }
+  body::before {
+    clip-path: ellipse(65% 25% at 50% 0%);
+  }
+  body::after {
+    clip-path: ellipse(65% 25% at 50% 100%);
+  }
+}
